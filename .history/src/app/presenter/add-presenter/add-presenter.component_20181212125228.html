@@ -1,0 +1,61 @@
+<div class="container">
+  <h3>Presenter Details</h3>
+  <button type="button" class="btn btn-primary" (click)="backToList()" name="button" >List Presenter</button>
+  <form #presenterForm="ngForm" (ngSubmit)="addPresenter(presenterForm)">
+
+    <div class="form-group">
+      <label for="name">Emp ID : </label>
+      <input type="text" class="form-control" name="empId" required ngModel pattern="[0-9]*" #userEmpId="ngModel">
+    </div>
+    <div *ngIf="userEmpId?.touched">
+      <div *ngIf="userEmpId.errors?.required" class="alert alert-danger">
+        Emp Id is required.
+      </div>
+      <div *ngIf="userEmpId.errors?.pattern" class="alert alert-danger">
+        Emp Id is invalid.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">First Name : </label>
+      <input required type="text" class="form-control" id="firstName" name="firstName" ngModel minlength="2" pattern="[a-zA-Z][a-zA-Z]+"
+        #userFirstName="ngModel">
+    </div>
+    <div *ngIf="userFirstName?.touched">
+      <div *ngIf="userFirstName.errors?.required" class="alert alert-danger">
+        First Name is required.
+      </div>
+      <div *ngIf="userFirstName.errors?.pattern" class="alert alert-danger">
+        First Name is invalid.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name : </label>
+      <input type="text" class="form-control" name="lastName" required ngModel minlength="2" #userLastName="ngModel">
+    </div>
+    <div *ngIf="userLastName?.touched">
+      <div *ngIf="userLastName.errors?.required" class="alert alert-danger">
+        Last Name is required.
+      </div>
+      <div *ngIf="userLastName.errors?.minlength" class="alert alert-danger">
+        Last Name is invalid.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="technology">Technology : </label>
+      <input type="text" class="form-control" name="technology" required ngModel minlength="2" #userTechnology="ngModel">
+    </div>
+    <div *ngIf="userTechnology?.touched">
+      <div *ngIf="userTechnology.errors?.required" class="alert alert-danger">
+        Technology is required.
+      </div>
+      <div *ngIf="userTechnology.errors?.minlength" class="alert alert-danger">
+        Technology is invalid.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" name="button" [disabled]="presenterForm.invalid" (click)="addPresenter()>Submit</button>
+  </form>
+</div>

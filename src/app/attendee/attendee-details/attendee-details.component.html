@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-12">
+    <button class="btn btn-primary" routerLink="attendee" (click)="addAttendee('true')">Add Attendee</button>
+  </div>
+</div>
+<app-add-attendee *ngIf="addButtonClicked" (hideAddAttendee)="addAttendee($event)"></app-add-attendee>
+
+<h3>Attendee(s) Details</h3>
+<div class="row">
+    <div class="col-sm-6">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let attendee of attendeeList">
+          {{ attendee.firstName }} {{ attendee.lastName }}, {{ attendee.technology}}
+        </li>
+      </ul>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+[
+  {
+    "empId": 1,
+    "firstName": "Mayank",
+    "lastName": "Gupta",
+    "technology": "Big Data"
+  },
+  {
+    "id": 2,
+    "firstName": "Mohd.",
+    "lastName": "Hussain",
+    "technology": "Angular"
+  }
+]

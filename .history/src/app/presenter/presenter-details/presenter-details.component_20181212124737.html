@@ -1,0 +1,18 @@
+<div class="button-row" style="padding-top: 20px;padding-bottom: 20px">
+  <button class="btn btn-primary" (click)="addPresenter()">Add Presenter</button>
+</div>
+<app-add-presenter hidden={{addButtonClicked}}></app-add-presenter>
+<h3>Presenter(s) Details</h3>
+
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>Emp Id</th>
+    <th>Name</th>
+    <th>Technology</th>
+  </tr>
+  <tr *ngFor="let presenter of presenterList">
+    <td>{{ presenter.empId }}</td>
+    <td>{{ presenter.firstName }} {{ presenter.lastName }}</td>
+    <td >{{ presenter.technology }}</td>
+  </tr>
+</table>
